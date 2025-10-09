@@ -2,9 +2,7 @@
 
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import "./login.css"; // ✅ same folder, lowercase name
-import cowBg from "./public/cows.jpg";
-
+import "../login/login.css"; // ✅ correct relative path
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -20,8 +18,7 @@ export default function Login() {
     <div
       className="auth-container"
       style={{
-        backgroundImage:
-          "url('cows.jpg')",
+        backgroundImage: "url('/cows.jpg')", // ✅ background from /public folder
       }}
     >
       <div className="overlay"></div>
