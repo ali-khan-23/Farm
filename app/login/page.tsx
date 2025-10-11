@@ -2,23 +2,35 @@
 
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import "../login/login.css"; // ✅ correct relative path
+import { useRouter } from "next/navigation"; // ✅ Next.js router for navigation
+import "../login/login.css"; // ✅ your CSS file
 
 export default function Login() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Email: ${email}\nPassword: ${password}`);
+
+    // ✅ You can replace this fake check with real backend API call later
+    if (email === "admin@farm.com" && password === "123456") {
+      // Save fake token to simulate authentication
+      localStorage.setItem("token", "fake-jwt-token");
+
+      // ✅ Navigate to dashboard
+      router.push("/dashboard");
+    } else {
+      alert("Invalid email or password");
+    }
   };
 
   return (
     <div
       className="auth-container"
       style={{
-        backgroundImage: "url('/cows.jpg')", // ✅ background from /public folder
+        backgroundImage: "url('/cows.jpg')", // ✅ background from /public
       }}
     >
       <div className="overlay"></div>
