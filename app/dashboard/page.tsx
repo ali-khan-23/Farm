@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Navbar from "../Navbar/navbar"; // ✅ Correct import
 import {
   FaListAlt,
   FaChartLine,
@@ -13,7 +14,7 @@ import {
   FaShoppingBag,
   FaCanadianMapleLeaf,
 } from "react-icons/fa";
-import "./dashboard.css"; // ✅ same folder
+import "./dashboard.css";
 import Image from "next/image";
 
 export default function UserDashboard() {
@@ -21,7 +22,6 @@ export default function UserDashboard() {
   const [stats, setStats] = useState<any[]>([]);
 
   useEffect(() => {
-    // ✅ Fetch from backend or use fallback
     axios
       .get("http://localhost:5000/api/user/stats")
       .then((res) => {
@@ -37,7 +37,6 @@ export default function UserDashboard() {
         ]);
       })
       .catch(() => {
-        // ✅ fallback data
         setStats([
           { title: "My Animals", value: 3, icon: <FaListAlt />, color: "#007bff", path: "/animal" },
           { title: "Cattle", value: 21, icon: <FaCanadianMapleLeaf />, color: "#007bff", path: "/cattle-list" },
@@ -52,34 +51,37 @@ export default function UserDashboard() {
   }, []);
 
   return (
-    <div
-      className="user-dashboard-container"
-      style={{ backgroundImage: "url('/cattle.jpg')" }} // ✅ from /public folder
-    >
-      <div className="user-overlay"></div>
-      <h2 className="user-dashboard-title">Welcome to Your Dashboard</h2>
-      <div className="user-card-grid">
-        {stats.map((item, index) => (
-          <div
-            key={index}
-            onClick={() => router.push(item.path)}
-            className="user-dashboard-link"
-          >
+    <>
+      <Navbar /> {/* ✅ Navbar now visible */}
+      <div
+        className="user-dashboard-container"
+        style={{ backgroundImage: "url('/cattle.jpg')" }}
+      >
+        <div className="user-overlay"></div>
+        <h2 className="user-dashboard-title">Welcome to Your Dashboard</h2>
+        <div className="user-card-grid">
+          {stats.map((item, index) => (
             <div
-              className="user-dashboard-card"
-              style={{
-                background: `linear-gradient(135deg, ${item.color}, #000000)`,
-              }}
+              key={index}
+              onClick={() => router.push(item.path)}
+              className="user-dashboard-link"
             >
-              <div className="user-card-icon">{item.icon}</div>
-              <div className="user-card-info">
-                <h3>{item.title}</h3>
-                <p className="count-white">{item.value}</p>
+              <div
+                className="user-dashboard-card"
+                style={{
+                  background: `linear-gradient(135deg, ${item.color}, #000000)`,
+                }}
+              >
+                <div className="user-card-icon">{item.icon}</div>
+                <div className="user-card-info">
+                  <h3>{item.title}</h3>
+                  <p className="count-white">{item.value}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
