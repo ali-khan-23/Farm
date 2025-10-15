@@ -1,0 +1,111 @@
+.buy-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Black overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.buy-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: 100%;
+  text-align: left;
+  position: relative;
+  z-index: 1; /* stay above overlay */
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.buy-card h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #333;
+  position: relative;
+}
+
+.buy-card h2::after {
+  content: "";
+  display: block;
+  margin: 8px auto 0;
+  width: 60px;
+  height: 3px;
+  background: forestgreen;
+  border-radius: 2px;
+}
+
+.buy-form-vertical label {
+  display: block;
+  margin: 10px 0 6px;
+  font-weight: 600;
+  color: #444;
+}
+
+.buy-form-vertical input,
+.buy-form-vertical textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buy-form-vertical input:focus,
+.buy-form-vertical textarea:focus {
+  border-color: forestgreen;
+  box-shadow: 0 0 6px rgba(34, 139, 34, 0.4);
+  outline: none;
+}
+
+.buy-form-vertical textarea {
+  resize: none;
+}
+
+.buy-form-vertical button {
+  width: 100%;
+  padding: 12px;
+  background: forestgreen;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buy-form-vertical button:hover {
+  background: #228B22;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
