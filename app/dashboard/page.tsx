@@ -40,7 +40,7 @@ export default function UserDashboard() {
           { title: "My Animals", value: 3, icon: <FaListAlt />, color: "#007bff", path: "/myanimals" },
           { title: "Cattle", value: 21, icon: <FaCanadianMapleLeaf />, color: "#007bff", path: "/cattle" },
           { title: "Animal Progress", value: 3, icon: <FaChartLine />, color: "#28a745", path: "/animalprogress" },
-          { title: "My Installments", value: 3, icon: <FaMoneyCheckAlt />, color: "#ffc107", path: "/my-installments" },
+          { title: "My Installments", value: 3, icon: <FaMoneyCheckAlt />, color: "#ffc107", path: "/myinstallments" },
           { title: "My Vouchers", value: 12, icon: <FaGift />, color: "#fd7e14", path: "/vouchers" },
           { title: "Breeding", value: 6, icon: <FaHeart />, color: "#e83e8c", path: "/breeding" },
           { title: "Feed Records", value: 4, icon: <FaLeaf />, color: "#20c997", path: "/feed-records" },

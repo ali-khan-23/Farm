@@ -29,7 +29,7 @@ export default function Navbar() {
           <Link href="/breeding">Breeding</Link>
           <Link href="/feed-records">Feed Records</Link>
           <Link href="/buy-animal">Buy Animal</Link>
-          <Link href="/my-installments">My Installments</Link>
+          <Link href="/myinstallments">My Installments</Link>
           <Link href="/vouchers">Vouchers</Link>
         </div>
       </div>
