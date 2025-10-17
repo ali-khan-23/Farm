@@ -24,8 +24,8 @@ export default function Navbar() {
         <div className="navbar-links">
           <Link href="/dashboard">Dashboard</Link>
           <Link href="/cattle">Cattle</Link>
-          <Link href="/animal">My Animals</Link>
-          <Link href="/status-list">Animals Progress</Link>
+          <Link href="/myanimals">My Animals</Link>
+          <Link href="/animalprogress">Animals Progress</Link>
           <Link href="/breeding">Breeding</Link>
           <Link href="/feed-records">Feed Records</Link>
           <Link href="/buy-animal">Buy Animal</Link>
